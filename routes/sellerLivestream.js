@@ -6,7 +6,8 @@ const {
     astroLiveStreaming,
     seller_liveChat,
     liveChat_byseller,
-    dltliveChat
+    dltliveChat,
+    UerLiveStreamingToken
    
 
 } = require("../controller/sellerLivestream");
@@ -14,9 +15,11 @@ const {
 
 
 router.post("/user/astroLiveStreaming", astroLiveStreaming);
-// router.post("/user/seller_liveChat", seller_liveChat);
-// router.get("/user/liveChat_byseller/:id", liveChat_byseller);
-// router.delete("/user/dltliveChat/:id", dltliveChat);
+router.post("/user/UerLiveStreamingToken", UerLiveStreamingToken);
+
+router.post("/user/seller_liveChat", seller_liveChat);
+router.get("/user/liveChat_byseller/:id", liveChat_byseller);
+router.delete("/user/dltliveChat/:id", dltliveChat);
 
 
 //localost
