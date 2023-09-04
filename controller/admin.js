@@ -1,6 +1,6 @@
 const axios = require('axios');
 const agora = require('agora-access-token');
-const AsLive = require("../models/sellerLiveStreaming");
+const AsLive = require("../models/admin");
 const resp = require("../helpers/apiResponse");
 const LiveChat = require("../models/liveChat");
 
