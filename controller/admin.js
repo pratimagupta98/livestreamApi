@@ -1,8 +1,7 @@
 const axios = require('axios');
 const agora = require('agora-access-token');
 const AsLive = require("../models/admin");
-const resp = require("../helpers/apiResponse");
-const LiveChat = require("../models/liveChat");
+ const LiveChat = require("../models/liveChat");
 
 
 
@@ -56,8 +55,21 @@ exports.astroLiveStreaming = async (req, res) => {
 
     newAsLive
         .save()
-        .then((data) => resp.successr(res, data))
-        .catch((error) => resp.errorr(res, error));
+        // .then((data) => resp.successr(res, data))
+        // .catch((error) => resp.errorr(res, error));
+        .then((data) => {
+            res.status(200).json({
+              status: true,
+              data: data,
+            });
+          })
+          .catch((error) => {
+            res.status(400).json({
+              status: false,
+              msg: "error",
+              error: error,
+            });
+          });
 }
 exports.UerLiveStreamingToken = async (req, res) => {
 
@@ -106,8 +118,21 @@ exports.UerLiveStreamingToken = async (req, res) => {
         })
         newAsLive
             .save()
-            .then((data) => resp.successr(res, data))
-            .catch((error) => resp.errorr(res, error));
+            .then((data) => {
+                res.status(200).json({
+                  status: true,
+                  data: data,
+                });
+              })
+              .catch((error) => {
+                res.status(400).json({
+                  status: false,
+                  msg: "error",
+                  error: error,
+                });
+              });
+            // .then((data) => resp.successr(res, data))
+            // .catch((error) => resp.errorr(res, error));
     }
 
 
