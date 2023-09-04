@@ -12,11 +12,11 @@ app.use(cors());
 
 //require
   
-const sellerLiveStreaming = require("./routes/sellerLiveStreaming");
+//const sellerLiveStreaming = require("./routes/sellerLiveStreaming");
  
 //use
  
-app.use("/", sellerLiveStreaming);
+//app.use("/", sellerLiveStreaming);
  
 
 
