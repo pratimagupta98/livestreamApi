@@ -10,11 +10,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //require
-const admin = require("./routes/admin");
+const sellerLivestream = require("./routes/sellerLivestream");
   
 //use
  
-app.use("/", admin);
+app.use("/", sellerLivestream);
  
 
 

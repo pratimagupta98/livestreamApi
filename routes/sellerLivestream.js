@@ -9,7 +9,7 @@ const {
     dltliveChat
    
 
-} = require("../controller/admin");
+} = require("../controller/sellerLivestream");
 
 
 

@@ -1,6 +1,6 @@
 const axios = require('axios');
 const agora = require('agora-access-token');
-const AsLive = require("../models/admin");
+const AsLive = require("../models/sellerLivestream");
  const LiveChat = require("../models/liveChat");
 
 
@@ -150,20 +150,59 @@ exports.UerLiveStreamingToken = async (req, res) => {
     
         newLiveChat
             .save()
-            .then((data) => resp.successr(res, data))
-            .catch((error) => resp.errorr(res, error));
+            .then((data) => {
+              res.status(200).json({
+                status: true,
+                data: data,
+              });
+            })
+            .catch((error) => {
+              res.status(400).json({
+                status: false,
+                msg: "error",
+                error: error,
+              });
+            });
+            // .then((data) => resp.successr(res, data))
+            // .catch((error) => resp.errorr(res, error));
     }
 
 
     exports.liveChat_byseller = async (req, res) => {
         await LiveChat.find({ sellerid: req.params.id }) 
             .sort({ sortorder: 1 })
-            .then((data) => resp.successr(res, data))
-            .catch((error) => resp.errorr(res, error));
+            .then((data) => {
+              res.status(200).json({
+                status: true,
+                data: data,
+              });
+            })
+            .catch((error) => {
+              res.status(400).json({
+                status: false,
+                msg: "error",
+                error: error,
+              });
+            });
+            // .then((data) => resp.successr(res, data))
+            // .catch((error) => resp.errorr(res, error));
     };
 
     exports.dltliveChat = async (req, res) => {
         await LiveChat.deleteMany({ sellerid: req.params.id })
-            .then((data) => resp.deleter(res, data))
-            .catch((error) => resp.errorr(res, error));
+        .then((data) => {
+          res.status(200).json({
+            status: true,
+            data: data,
+          });
+        })
+        .catch((error) => {
+          res.status(400).json({
+            status: false,
+            msg: "error",
+            error: error,
+          });
+        });
+            // .then((data) => resp.deleter(res, data))
+            // .catch((error) => resp.errorr(res, error));
     };
