@@ -206,3 +206,23 @@ exports.UerLiveStreamingToken = async (req, res) => {
             // .then((data) => resp.deleter(res, data))
             // .catch((error) => resp.errorr(res, error));
     };
+
+
+    exports.disConnectLiveStream = async (req, res) => {
+    const getId = await AsLive.deleteOne({ astroAccount: req.params.astroAccount })
+    if (getId) {
+        res.status(200).json({
+            status: true,
+            msg: "Disconnect Streaming",
+
+        })
+    } else {
+        res.status(500).json({
+            status: false,
+            message: "error",
+            error: error
+
+        });
+    }
+
+};
