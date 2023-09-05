@@ -8,7 +8,8 @@ const {
     liveChat_byseller,
     dltliveChat,
     UerLiveStreamingToken,
-    disConnectLiveStream
+    disConnectLiveStream,
+    liveStreamlist
    
 
 } = require("../controller/sellerLivestream");
@@ -23,6 +24,7 @@ router.get("/user/liveChat_byseller/:id", liveChat_byseller);
 router.delete("/user/dltliveChat/:id", dltliveChat);
 router.get("/user/disConnectLiveStream/:astroAccount", disConnectLiveStream);
 
+router.get("/user/liveStreamlist", liveStreamlist);
 
 //localost
  

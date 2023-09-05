@@ -226,3 +226,22 @@ exports.UerLiveStreamingToken = async (req, res) => {
     }
 
 };
+
+
+exports.liveStreamlist= async (req, res) => {
+  await AsLive.find()
+      .sort({ createdAt: -1 })
+      .then((data) => {
+        res.status(200).json({
+          status: true,
+          data: data,
+        });
+      })
+      .catch((error) => {
+        res.status(400).json({
+          status: false,
+          msg: "error",
+          error: error,
+        });
+      });
+};
