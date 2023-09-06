@@ -139,11 +139,21 @@ exports.UerLiveStreamingToken = async (req, res) => {
     exports.seller_liveChat = async (req, res) => {
 
         const { sellerid, userid, msg } = req.body;
-    
+        const response = await axios.get('https://keensuk.com/razorland/api/ApiCommonController/user_loginList');
+    const apiData = response.data.data; // Access the "data" property
+    console.log("apiData", apiData)
+  //  const { astroAccount, userAccount, status } = req.body;
+    console.log("req.body", req.body)
+    // Find the user in apiData based on the astroAccount value
+    const foundUser = apiData.find(user => user.id === userid);
+    // console.log("apiData",foundUser)
+    const findoneusername = foundUser.username;
+    console.log("findoneusername",findoneusername)
         const newLiveChat = new LiveChat({
             sellerid: sellerid,
             userid: userid,
-            msg: msg
+            msg: msg,
+            username:findoneusername
     
         });
     

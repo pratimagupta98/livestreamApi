@@ -23,6 +23,9 @@ const thisSchema = new Schema(
         },
         expiredAt: {
             type: String
+        },
+        username:{
+            type:String
         }
 
 

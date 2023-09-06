@@ -21,7 +21,10 @@ const thisSchema = new Schema(
         },
         type:{
             
+        },  username:{
+            type:String
         }
+
     },
 
     { timestamps: true }
